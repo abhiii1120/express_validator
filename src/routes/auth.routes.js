@@ -1,5 +1,6 @@
 import { Router } from "express";
 import * as authController from '../controllers/auth.controller.js'
+import registerValidationRules from "../validation/auth.validation.js";
 let authRouter  = Router();
 
 
@@ -12,6 +13,6 @@ let authRouter  = Router();
  * @argument {req.body.password} - user's password
  * @access Public
  */
-authRouter.post('/register',authController.registerUser);
+authRouter.post('/register',registerValidationRules,authController.registerUser);
 
 export default authRouter;
